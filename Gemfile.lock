@@ -76,6 +76,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
+    ast (2.4.2)
     base64 (0.1.1)
     bigdecimal (3.1.4)
     bindex (0.8.1)
@@ -115,6 +116,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    json (2.6.3)
+    language_server-protocol (3.17.0.3)
     loofah (2.21.4)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -145,6 +148,10 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
+    parallel (1.23.0)
+    parser (3.2.2.4)
+      ast (~> 2.4.1)
+      racc
     pg (1.5.4)
     psych (5.1.1.1)
       stringio
@@ -189,6 +196,7 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
+    rainbow (3.1.1)
     rake (13.0.6)
     rdoc (6.5.0)
       psych (>= 4.0.0)
@@ -196,6 +204,21 @@ GEM
     reline (0.3.9)
       io-console (~> 0.5)
     rexml (3.2.6)
+    rubocop (1.57.1)
+      base64 (~> 0.1.1)
+      json (~> 2.3)
+      language_server-protocol (>= 3.17.0)
+      parallel (~> 1.10)
+      parser (>= 3.2.2.4)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.28.1, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 3.0)
+    rubocop-ast (1.29.0)
+      parser (>= 3.2.1.0)
+    ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     selenium-webdriver (4.14.0)
@@ -220,6 +243,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    unicode-display_width (2.5.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -248,6 +272,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.1)
+  rubocop (>= 1.0, < 2.0)
   selenium-webdriver
   sprockets-rails
   stimulus-rails
@@ -268,6 +293,7 @@ CHECKSUMS
   activestorage (7.1.1) sha256=0cc259e1fe5ff20777a206ed71f1b1ed03825c8e14a86a344e637fa25c5a0090
   activesupport (7.1.1) sha256=8770bca4af1cbd6e9ffb944b41056321499ff82e8e7c2ed34e48eff4a5ee58a2
   addressable (2.8.5) sha256=63f0fbcde42edf116d6da98a9437f19dd1692152f1efa3fcc4741e443c772117
+  ast (2.4.2) sha256=1e280232e6a33754cde542bc5ef85520b74db2aac73ec14acef453784447cc12
   base64 (0.1.1) sha256=0c75d351a429b5176a476cd8a3740cff3277d2bac26a50b5c7456c266e9acd33
   bigdecimal (3.1.4) sha256=de0c967bb24afe45e0e3d2d65e376614a430c3bc70563ac21cb3518f7409c61f
   bindex (0.8.1) sha256=7b1ecc9dc539ed8bccfc8cb4d2732046227b09d6f37582ff12e50a5047ceb17e
@@ -287,6 +313,8 @@ CHECKSUMS
   io-console (0.6.0) sha256=ce9d9a3455be48c56cac65b8ef7ec59b07526343905f9fda138791005b563336
   irb (1.8.3) sha256=d8e25ca0bf6e3714241a674941153a97105bc52c0832c9071d139aefb798c82a
   jbuilder (2.11.5) sha256=ea6234b334f4afc9205eaa136729da2904731ca01ff05d4db3173b70ebeba8c0
+  json (2.6.3) sha256=86aaea16adf346a2b22743d88f8dcceeb1038843989ab93cda44b5176c845459
+  language_server-protocol (3.17.0.3) sha256=3d5c58c02f44a20d972957a9febe386d7e7468ab3900ce6bd2b563dd910c6b3f
   loofah (2.21.4) sha256=2c18cd5db9fd92a48a270344e57a5b84cf22d668b78e1481f10e4f2cde4eb734
   mail (2.8.1) sha256=ec3b9fadcf2b3755c78785cb17bc9a0ca9ee9857108a64b6f5cfc9c0b5bfc9ad
   marcel (1.0.2) sha256=a013b677ef46cbcb49fd5c59b3d35803d2ee04dd75d8bfdc43533fc5a31f7e4e
@@ -303,6 +331,8 @@ CHECKSUMS
   nokogiri (1.15.4-aarch64-linux) sha256=14091a07e07045a440213f7d5ced732fa7654ae8b6c7d180137f4124c5284ab8
   nokogiri (1.15.4-arm64-darwin) sha256=707288e293f4fc82a008f90b7ba0180d9f803f6a239a13e424378fedf8cf93e9
   nokogiri (1.15.4-x86_64-linux) sha256=872ced3d72d797ed9b5a76c67141c6cee7589711358e11c73e9c53724ffd1842
+  parallel (1.23.0) sha256=27154713ad6ef32fa3dcb7788a721d6c07bca77e72443b4c6080a14145288c49
+  parser (3.2.2.4) sha256=edbe6751f85599c8152173ccadbd708f444b7214de2a1d4969441a68e06ac964
   pg (1.5.4) sha256=04f7b247151c639a0b955d8e5a9a41541343f4640aa3c2bdf749a872c339d25d
   psych (5.1.1.1) sha256=44b0d1823629ac815f1f470af642dc7261489d67feb622a3f5573aa9f5cc5f72
   public_suffix (5.0.3) sha256=337d475da2bd2ea1de0446751cb972ad43243b4b00aa8cf91cb904fa593d3259
@@ -316,11 +346,15 @@ CHECKSUMS
   rails-dom-testing (2.2.0) sha256=e515712e48df1f687a1d7c380fd7b07b8558faa26464474da64183a7426fa93b
   rails-html-sanitizer (1.6.0) sha256=86e9f19d2e6748890dcc2633c8945ca45baa08a1df9d8c215ce17b3b0afaa4de
   railties (7.1.1) sha256=3cf348b365e9a00285bceadef0ed7d264440fcf165541ab211e198bc75a2faa7
+  rainbow (3.1.1) sha256=039491aa3a89f42efa1d6dec2fc4e62ede96eb6acd95e52f1ad581182b79bc6a
   rake (13.0.6) sha256=5ce4bf5037b4196c24ac62834d8db1ce175470391026bd9e557d669beeb19097
   rdoc (6.5.0) sha256=95b98a0b087fcd9ab59e05864fab605b1ead12bab4212eb1d2295fc574672217
   regexp_parser (2.8.2) sha256=5e65506e536e4f14ce2cd98a3daecf20b88ac77b6268412928bec98c872e2ab5
   reline (0.3.9) sha256=4a024da0e1802086efe9c7c2de9546c1f3f38fab269b29ff6e13b53393bc0705
   rexml (3.2.6) sha256=e0669a2d4e9f109951cb1fde723d8acd285425d81594a2ea929304af50282816
+  rubocop (1.57.1) sha256=815449c1918f8acfd000cd52e2e20283e20540fac8d81c10e8d76df312dbfdc7
+  rubocop-ast (1.29.0) sha256=d1da2ab279a074baefc81758ac430c5768a8da8c7438dd4e5819ce5984d00ba1
+  ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
   ruby2_keywords (0.0.5) sha256=ffd13740c573b7301cf7a2e61fc857b2a8e3d3aff32545d6f8300d8bae10e3ef
   rubyzip (2.3.2) sha256=3f57e3935dc2255c414484fbf8d673b4909d8a6a57007ed754dde39342d2373f
   selenium-webdriver (4.14.0) sha256=55726f81021d3f085ed9fcd318486b7ba90155598bb9e1fde7e4deeefe139d24
@@ -332,6 +366,7 @@ CHECKSUMS
   timeout (0.4.0) sha256=cd6d1f3e83594a90ac1f3de8235399bff87112d97fec928ee2b77de240dd2cb5
   turbo-rails (1.5.0) sha256=b426cc762fb0940277729b3f1751a9f0bd269f5613c1d62ac73e5f0be7c7a83e
   tzinfo (2.0.6) sha256=8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b
+  unicode-display_width (2.5.0) sha256=7e7681dcade1add70cb9fda20dd77f300b8587c81ebbd165d14fd93144ff0ab4
   web-console (4.2.1) sha256=e7bcf37a10ea2b4ec4281649d1cee461b32232d0a447e82c786e6841fd22fe20
   webrick (1.8.1) sha256=19411ec6912911fd3df13559110127ea2badd0c035f7762873f58afc803e158f
   websocket (1.2.10) sha256=2cc1a4a79b6e63637b326b4273e46adcddf7871caa5dc5711f2ca4061a629fa8
