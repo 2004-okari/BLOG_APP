@@ -38,7 +38,7 @@ RSpec.describe Post do
     end
 
     it 'returns 10 comments' do
-      expect(@post.get_recent_comments.length).to eq 5
+      expect(@post.count_recent_comments.length).to eq 5
     end
   end
 

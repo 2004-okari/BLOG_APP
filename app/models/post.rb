@@ -8,7 +8,7 @@ class Post < ApplicationRecord
 
   after_save :update_posts_counter
 
-  def get_recent_comments
+  def count_recent_comments
     recent_comments
   end
 
