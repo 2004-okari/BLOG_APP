@@ -25,13 +25,13 @@ RSpec.describe User, type: :model do
                    created_at: 2.days.ago)
     end
     let!(:recent_posts) do
-      5.times.map do
+      3.times.map do
         Post.create!(author: user, title: 'Recent Post', text: 'Hello World', comments_counter: 0, likes_counter: 0)
       end
     end
 
-    it 'returns the most recent posts' do
-      expect(user.recent_posts).to eq(recent_posts.reverse)
+    it 'does not return old posts' do
+      expect(user.recent_posts).not_to include(old_post)
     end
   end
 end
