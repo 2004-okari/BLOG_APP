@@ -99,6 +99,7 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    diff-lcs (1.5.0)
     drb (2.1.1)
       ruby2_keywords
     erubi (1.12.0)
@@ -204,6 +205,23 @@ GEM
     reline (0.3.9)
       io-console (~> 0.5)
     rexml (3.2.6)
+    rspec-core (3.12.2)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.6)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-rails (6.0.3)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.12)
+      rspec-expectations (~> 3.12)
+      rspec-mocks (~> 3.12)
+      rspec-support (~> 3.12)
+    rspec-support (3.12.1)
     rubocop (1.57.1)
       base64 (~> 0.1.1)
       json (~> 2.3)
@@ -272,6 +290,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.1)
+  rspec-rails
   rubocop (>= 1.0, < 2.0)
   selenium-webdriver
   sprockets-rails
@@ -305,6 +324,7 @@ CHECKSUMS
   crass (1.0.6) sha256=dc516022a56e7b3b156099abc81b6d2b08ea1ed12676ac7a5657617f012bd45d
   date (3.3.3) sha256=819792019d5712b748fb15f6dfaaedef14b0328723ef23583ea35f186774530f
   debug (1.8.0) sha256=502bd1ad41a9a4b51f557f181cd13650c746390a82b5d11a5d2c81600ca013da
+  diff-lcs (1.5.0) sha256=49b934001c8c6aedb37ba19daec5c634da27b318a7a3c654ae979d6ba1929b67
   drb (2.1.1) sha256=6b8f481d9a9a7528c41d4f66484a4a73d2204f095da8ab141b5ea0aa22162c41
   erubi (1.12.0) sha256=27bedb74dfb1e04ff60674975e182d8ca787f2224f2e8143268c7696f42e4723
   globalid (1.2.1) sha256=70bf76711871f843dbba72beb8613229a49429d1866828476f9c9d6ccc327ce9
@@ -352,6 +372,11 @@ CHECKSUMS
   regexp_parser (2.8.2) sha256=5e65506e536e4f14ce2cd98a3daecf20b88ac77b6268412928bec98c872e2ab5
   reline (0.3.9) sha256=4a024da0e1802086efe9c7c2de9546c1f3f38fab269b29ff6e13b53393bc0705
   rexml (3.2.6) sha256=e0669a2d4e9f109951cb1fde723d8acd285425d81594a2ea929304af50282816
+  rspec-core (3.12.2) sha256=155b54480f28e2b2813185077fe435c2d663031616360ed3b179a9d6a55d2551
+  rspec-expectations (3.12.3) sha256=093d18e2e7e0a2c619ef8f7343d442fc6c0793fb7897d56f16f26c8a9d244416
+  rspec-mocks (3.12.6) sha256=de51a4148ba2ce6f1c1646a2a03e9df2f52da9a42b164f2e7467b2cbe37e07bf
+  rspec-rails (6.0.3) sha256=6d1812cfaf18dba5a08d7e30c85149b24a220fae064853a96e451376be6fd820
+  rspec-support (3.12.1) sha256=f969b85d0068ff97bc47c9d6fc2bca9706d73406f2b4e5d3b346443d8734c8cf
   rubocop (1.57.1) sha256=815449c1918f8acfd000cd52e2e20283e20540fac8d81c10e8d76df312dbfdc7
   rubocop-ast (1.29.0) sha256=d1da2ab279a074baefc81758ac430c5768a8da8c7438dd4e5819ce5984d00ba1
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
