@@ -17,4 +17,21 @@ RSpec.describe User, type: :model do
       expect(user).to_not be_valid
     end
   end
+
+  describe '#recent_posts' do
+    let(:user) { User.create!(name: 'John Doe', posts_counter: 3) }
+    let!(:old_post) do
+      Post.create!(author: user, title: 'Old Post', text: 'Hello World', comments_counter: 0, likes_counter: 0,
+                   created_at: 2.days.ago)
+    end
+    let!(:recent_posts) do
+      5.times.map do
+        Post.create!(author: user, title: 'Recent Post', text: 'Hello World', comments_counter: 0, likes_counter: 0)
+      end
+    end
+
+    it 'returns the most recent posts' do
+      expect(user.recent_posts).to eq(recent_posts.reverse)
+    end
+  end
 end
