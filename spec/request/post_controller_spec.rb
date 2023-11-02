@@ -1,39 +1,47 @@
-# require 'rails_helper'
+require 'rails_helper'
 
-# RSpec.describe "Posts", type: :request do
-#   describe "GET /posts" do
-#     it "returns a successful response" do
-#       get posts_path
-#       expect(response).to have_http_status(200)
-#     end
+RSpec.describe PostsController, type: :request do
+  describe 'GET #index' do
+    it 'returns a success response' do
+      user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.', id: 204)
+      get "/users/#{user.id}/posts"
+      expect(response).to have_http_status(:success)
+    end
 
-#     it 'renders the index template' do
-#       get posts_path
-#       expect(response).to render_template('posts/index')
-#     end
+    it 'renders the index template' do
+      user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.', id: 201)
+      post = Post.create(author: user, title: 'Hello', text: 'This is my first post', id: 201)
+      get "/users/#{user.id}/posts"
+      expect(response).to render_template('posts/index')
+    end
 
-#     it 'renders the right placeholder' do
-#       get posts_path
-#       expect(response.body).to include 'Here is a list of posts'
-#     end
-#   end
+    it 'renders the right placeholder' do
+      user = User.create(name: "John Doe") # Create a user for testing
+      get "/users/#{user.id}/posts"
+      expect(response.body).to include('List of posts from the users')
+    end
+  end
 
-#   describe "GET /posts/:id" do
-#     let(:post) { Post.create(title: "Sample Post", content: "Lorem ipsum dolor sit amet") }
+  describe 'GET #show' do
+    it 'returns a success response' do
+      user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.', id: 201)
+      post = Post.create(author: user, title: 'Hello', text: 'This is my first post', id: 201)
+      get "/users/#{user.id}/posts/#{post.id}"
+      expect(response).to have_http_status(:success)
+    end
 
-#     it 'returns a success response' do
-#       get post_path(post)
-#       expect(response).to be_successful
-#     end
+    it 'renders the show template' do
+      user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.', id: 200)
+      post = Post.create(author: user, title: 'Hello', text: 'This is my first post', id: 200)
+      get "/users/#{user.id}/posts/#{post.id}"
+      expect(response).to render_template('posts/show')
+    end
 
-#     it 'renders the show template' do
-#       get post_path(post)
-#       expect(response).to render_template('posts/show')
-#     end
-
-#     it 'includes correct placeholder text in the response body' do
-#       get post_path(post)
-#       expect(response.body).to include('<h1>Sample Post</h1>')
-#     end
-#   end
-# end
+    it 'renders the right placeholder' do
+      user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.', id: 209)
+      post = Post.create(author: user, title: 'Hello', text: 'This is my first post', id: 209)
+      get "/users/#{user.id}/posts/#{post.id}"
+      expect(response.body).to include('Here is a post for given user')
+    end
+  end
+end
