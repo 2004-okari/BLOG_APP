@@ -1,0 +1,13 @@
+<div class='lists-user'>
+    <div class='user-img'>
+    <% if user.photo.present? %>
+        <%= image_tag(user.photo, alt: user.name) %>
+   <% else %>
+        <img src="https://placehold.jp/150x150.png" alt="Photo">
+   <% end %>    
+    </div>
+    <div class='user-info'>
+        <h2><%= user.name%></h2>
+        <p>Number of posts: <%=user.posts.count%></p>
+    </div>
+</div>

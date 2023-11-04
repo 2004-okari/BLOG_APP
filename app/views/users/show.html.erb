@@ -1,4 +1,8 @@
-<div>
-  <h1><%= @user.name %></h1>
-  <p><%= @user.bio %></p>
-</div>
+<%= render "helpers/users_list", user: @user %>
+<%= render "helpers/user_bio", user: @user %>
+  <ul class="users users_container">
+    <%= render "helpers/user_post", user: @user %>
+  </ul>
+  <div class="link_user_posts">
+    <%= link_to "See all posts", user_posts_path(user_id: @user.id) %>
+  </div>

@@ -1,0 +1,11 @@
+<div class='post-comments'>
+  <% if post.comments.empty? %>
+    <p>No comments</p>
+  <% else %>
+    <% post.recent_comments.each do |comment| %>
+      <div class='comment'>
+        <p><%= comment.user.name %>: <%= comment.text %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
