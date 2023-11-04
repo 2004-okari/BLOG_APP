@@ -1,9 +1,11 @@
-<h1>List of posts from the users</h1>
-
-<ul>
-  <% @posts.each do |post| %>
-    <li>
-      <%= post.title %>
-    </li>
-  <% end %>
-</ul>
+<%= render "helpers/user_list", user: @user %>
+    <ul class="post users_container">
+         <% @user.posts.each do |post| %>
+         <%= link_to user_post_path(@user.id, post.id) do %>
+            <%= render 'helpers/post', post: post %>
+          <% end %>
+        <% end %>
+    </ul>
+     <div class="link_user_posts">
+    <%= link_to "Pagination", user_posts_path(user_id: @user.id) %>
+  </div>

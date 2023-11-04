@@ -1,1 +1,16 @@
-<h1>Here is a post for given user</h1>
+<div class="post_container">
+    <div class="post_header">
+        <h3><%= @post.title%> by <%= @user.name%></h3>
+
+        <div class="likes-comments">
+            <span>
+                Comments: <%= @post.comments.count %>,
+            </span>
+            <span>
+                Likes: <%= @post.likes.count %>
+            </span>
+        </div>
+    </div>
+    <p><%= @post.text%></p>
+</div>
+<%= render 'helpers/all_comments', post: @post %>
