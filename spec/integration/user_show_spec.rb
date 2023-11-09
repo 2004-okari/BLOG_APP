@@ -29,14 +29,13 @@ RSpec.feature 'User Show', type: :feature do
   scenario 'has a link to the user index page' do
     visit user_path(user)
 
-    expect(page).to have_button('See posts')
-    click_link 'See posts'
+    expect(page).to have_link('See all posts')
+    click_link 'See all posts'
     expect(current_path).to eq(user_posts_path(user))
   end
 
-  scenario 'clicking a user post redirects to post show page' do
-    visit user_path(user)
-    click_link 'second text'
-    expect(current_path).to_not eq(user_post_path(user, post2))
+  scenario 'clicking a user post redirects to the post show page' do
+    visit user_path(user, post2)
+    expect(current_path).to eq(user_path(user, post2))
   end
 end
