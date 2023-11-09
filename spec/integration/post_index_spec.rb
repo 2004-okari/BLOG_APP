@@ -18,7 +18,7 @@ RSpec.feature 'Post Index', type: :feature do
   scenario "see some of the post's title, body and first comments" do
     visit user_posts_path(user, post, comment)
     expect(page).to_not have_content('first comment')
-  end  
+  end
 
   scenario 'see a section for pagination if there are more posts than fit on the view' do
     visit user_posts_path(user)

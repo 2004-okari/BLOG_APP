@@ -13,7 +13,7 @@ RSpec.feature 'Post Show', type: :feature do
 
   scenario 'see the title of the post and who wrote it and the interactions' do
     visit user_posts_path(user, post)
-    expect(page).to have_content("Hanako")
+    expect(page).to have_content('Hanako')
     expect(page).to have_content('Number')
     expect(page).to have_content('Pagination')
   end
@@ -25,7 +25,7 @@ RSpec.feature 'Post Show', type: :feature do
 
   scenario 'see the username and comment of each post' do
     visit user_posts_path(user, post)
-  
+
     expect(page).to have_content('Hanako')
     expect(page).to have_content('Number')
   end
