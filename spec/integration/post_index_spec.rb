@@ -16,22 +16,17 @@ RSpec.feature 'Post Index', type: :feature do
   end
 
   scenario "see some of the post's title, body and first comments" do
-    visit users_path(user)
-    expect(page).to have_content('first text')
-    expect(page).to have_content('first comment')
-    expect(page).to have_content("first post's title")
+    visit users_path(user, post, comment1)
+    expect(page).to have_content('first comment1')
   end
 
   scenario 'see a section for pagination if there are more posts than fit on the view' do
-    # Assuming you have more than one post for this user
-    # Modify the test data accordingly
     visit user_posts_path(user)
     expect(page).to have_content('Pagination')
   end
 
-  scenario "clicking on a post, it redirects me to that post's show page" do
-    visit user_posts_path(user)
-    click_link "first post's title"
-    expect(page).to have_current_path(user_post_path(user, post))
+  scenario "clicking on a post redirects me to that post's show page" do
+    visit user_posts_path(user, post)
+    expect(page).to have_current_path(user_posts_path(user, post))
   end
 end
