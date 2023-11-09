@@ -137,3 +137,57 @@ ul.users.users_container li {
   border: 2px solid;
   border-radius: 5px;
 }
+
+form.button_to button {
+  border: none;
+  background: transparent;
+  display: flex;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+span.likesBtn {
+  display: flex;
+}
+
+.likes-comments {
+  display: flex;
+  gap: 0.5em;
+}
+
+.field {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+form,
+form.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+form h1,
+.comment-form h1 {
+  margin-bottom: 0.5em;
+}
+
+input.submit-btn {
+  border: 1px solid;
+  width: fit-content;
+  padding: 0.25em;
+  font-weight: bold;
+}
+
+textarea#comment_text {
+  width: 25em;
+  padding: 0.75em;
+  height: 5em;
+  border: 1px solid gray;
+  font-size: 1em;
+}

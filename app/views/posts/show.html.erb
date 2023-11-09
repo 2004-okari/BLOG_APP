@@ -1,16 +1,21 @@
 <div class="post_container">
     <div class="post_header">
         <h3><%= @post.title%> by <%= @user.name%></h3>
-
+    
         <div class="likes-comments">
             <span>
-                Comments: <%= @post.comments.count %>,
+                Comments: <%= @post.comments.count %>
             </span>
-            <span>
-                Likes: <%= @post.likes.count %>
+            <span class='likesBtn'>
+                <%= button_to "Like: ", user_post_likes_path((@user, @post), method: :post, remote: true %> <%= @post.likes.count %>
             </span>
         </div>
+        <div class='custom-like-section'>
+  </div>
     </div>
     <p><%= @post.text%></p>
 </div>
 <%= render 'helpers/all_comments', post: @post %>
+<div class="link_user_posts">
+    <%= link_to 'Create comment', new_user_post_comment_path(@user, @post), class: 'create-commentBtn'%>
+  </div>
