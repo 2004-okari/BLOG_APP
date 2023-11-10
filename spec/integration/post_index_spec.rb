@@ -4,8 +4,6 @@ RSpec.feature 'Post Index', type: :feature do
   let(:user) { User.create(name: 'Tom', photo: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png', bio: 'He is a good programmer') }
   let!(:post) { Post.create(author: user, title: "first post's title", text: 'first text') }
   let!(:comment) { Comment.create(post: post, text: 'first comment') }
-  let!(:comment2) { Comment.create(post: post, text: 'second comment') }
-  let!(:comment3) { Comment.create(post: post, text: 'third comment') }
   let!(:like1) { Like.create(post: post) }
 
   scenario "see user's profile picture, username, number of posts and interactions" do
