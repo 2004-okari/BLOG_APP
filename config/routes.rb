@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'users#index'
+  get '/sign_out_user', to: 'users#sign_out_user', as: 'sign_out_user'
+  devise_for :users
   resources :users, only: %i(index show) do
     resources :posts, only: %i(index show, new, create) do
       resources :comments, only: %i(new, create)
