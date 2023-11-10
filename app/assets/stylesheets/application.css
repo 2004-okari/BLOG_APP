@@ -156,12 +156,12 @@ span.likesBtn {
 }
 
 .field {
-  width: 75%;
+  width: 80%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  gap: 0.25em;
+  gap: 0.36em;
 }
 
 form,
@@ -175,13 +175,13 @@ form.comment-form {
 
 form h1,
 .comment-form h1 {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.6em;
 }
 
 input.submit-btn {
   border: 1px solid;
   width: fit-content;
-  padding: 0.25em;
+  padding: 0.30em;
   font-weight: bold;
 }
 
