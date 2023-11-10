@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature 'User Index', type: :feature do
+  let(:user) { User.create(name: 'Hanako', photo: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png', bio: 'He is a good programmar') }
+  let!(:post) { Post.create(title: "first post's title", text: 'first text') }
+  let!(:comment3) { Comment.create(post: post, text: 'third comment') }
+  
   scenario 'visiting the user index page' do
     User.create(name: 'Tom', photo: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png')
     User.create(name: 'Ali', photo: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png')
@@ -14,7 +18,7 @@ RSpec.feature 'User Index', type: :feature do
   end
 
   scenario 'visiting the user index page, you see the number of posts each user has written..' do
-    visit user_path
+    visit users_path(user)
 
     expect(page).to have_content('Number of posts')
     expect(page).to have_content('0')
